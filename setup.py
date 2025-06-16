@@ -87,8 +87,8 @@ def get_version_info():
     elif os.path.exists('schemaperfect/version.py'):
         # must be a source distribution, use existing version file
         # load it as a separate module to not load schemaperfect/__init__.py
-        import imp
-        version = imp.load_source('schemaperfect.version',
+        import importlib
+        version = importlib.import_module('schemaperfect.version',
                                   'schemaperfect/version.py')
         GIT_REVISION = version.git_revision
     else:
